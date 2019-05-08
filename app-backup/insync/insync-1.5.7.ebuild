@@ -8,8 +8,8 @@ inherit rpm
 DESCRIPTION="Advanced cross-platform Google Drive client"
 HOMEPAGE="https://www.insynchq.com/"
 
-MAGIC="37346"
-MAIN_INSTALLER_STRING="http://s.insynchq.com/builds/insync-${PV}.${MAGIC}-fc25"
+MAGIC="37371"
+MAIN_INSTALLER_STRING="http://s.insynchq.com/builds/insync-${PV}.${MAGIC}-fc26"
 
 SRC_URI="
 	amd64?    ( ${MAIN_INSTALLER_STRING}.x86_64.rpm )"
