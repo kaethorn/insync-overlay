@@ -16,7 +16,7 @@ KEYWORDS="amd64 x86"
 IUSE=""
 
 DEPEND=""
-RDEPEND="dev-python/google-api-python-client"
+RDEPEND="dev-python/google-api-python-client dev-libs/libappindicator dev-python/pyinotify"
 BDEPEND=""
 
 PATCHES=(
