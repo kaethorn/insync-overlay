@@ -1,9 +1,9 @@
 # Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=5
+EAPI=7
 
-inherit rpm
+inherit rpm xdg-utils
 
 DESCRIPTION="Advanced cross-platform Google Drive client"
 HOMEPAGE="https://www.insynchq.com/"
@@ -24,17 +24,22 @@ RDEPEND="${DEPEND}"
 BDEPEND=""
 
 src_unpack() {
-	rpm_src_unpack ${A}
-	mkdir -p "${S}" # Without this src_prepare fails
+	rpm_src_unpack
+	mkdir -p "${S}"
+	mv "${WORKDIR}"/usr "${S}"/
 }
 
 src_install() {
-	cp -pPR "${WORKDIR}"/usr "${D}"/ || die "Installation failed"
-
-	echo "SEARCH_DIRS_MASK=\"/usr/lib*/insync\"" > "${T}/70${PN}" || die
-	insinto "/etc/revdep-rebuild" && doins "${T}/70${PN}" || die
+	cp -pPR "${WORKDIR}"/"${P}"/usr "${D}"/ || die "Installation failed"
+	gunzip "${D}"/usr/share/man/man1/insync.1.gz
 }
 
 pkg_postinst() {
-	elog "To automatically start insync add 'insync' to your session."
+	xdg_desktop_database_update
+	xdg_mimeinfo_database_update
+}
+
+pkg_postrm() {
+	xdg_desktop_database_update
+	xdg_mimeinfo_database_update
 }
