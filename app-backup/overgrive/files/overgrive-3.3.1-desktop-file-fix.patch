@@ -1,0 +1,11 @@
+diff --git a/usr/share/applications/overgrive.desktop b/usr/share/applications/overgrive.desktop
+index 8341ae1..b944006 100644
+--- a/usr/share/applications/overgrive.desktop
++++ b/usr/share/applications/overgrive.desktop
+@@ -1,6 +1,5 @@
+ [Desktop Entry]
+ Name=overGrive
+-Version=3.3
+ GenericName=overgrive
+ X-GNOME-FullName=overGrive
+ Comment=Ubuntu Google Drive Client
