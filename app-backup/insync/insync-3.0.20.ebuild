@@ -23,6 +23,10 @@ DEPEND=""
 RDEPEND="${DEPEND}"
 BDEPEND=""
 
+PATCHES=(
+	"${FILESDIR}/${P}-fix-ca-path.patch"
+)
+
 src_unpack() {
 	rpm_src_unpack
 	mkdir -p "${S}"
