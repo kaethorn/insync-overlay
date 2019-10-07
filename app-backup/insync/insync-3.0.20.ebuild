@@ -36,6 +36,9 @@ src_unpack() {
 src_install() {
 	cp -pPR "${WORKDIR}"/"${P}"/usr "${D}"/ || die "Installation failed"
 	gunzip "${D}"/usr/share/man/man1/insync.1.gz
+
+	echo "SEARCH_DIRS_MASK=\"/usr/lib*/insync\"" > "${T}/70${PN}" || die
+	insinto "/etc/revdep-rebuild" && doins "${T}/70${PN}" || die
 }
 
 pkg_postinst() {
