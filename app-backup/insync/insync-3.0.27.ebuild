@@ -25,6 +25,7 @@ BDEPEND=""
 
 PATCHES=(
 	"${FILESDIR}/${P}-fix-ca-path.patch"
+	"${FILESDIR}/${P}-lib64.patch"
 )
 
 src_unpack() {
