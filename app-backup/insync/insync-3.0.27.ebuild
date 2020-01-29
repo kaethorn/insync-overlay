@@ -37,6 +37,7 @@ src_unpack() {
 src_install() {
 	cp -pPR "${WORKDIR}"/"${P}"/usr/ "${D}"/ || die "Installation failed"
 	mv "${D}"/usr/lib "${D}"/usr/lib64
+	rm -Rf "${D}"/usr/lib64/.build-id
 	gunzip "${D}"/usr/share/man/man1/insync.1.gz
 
 	echo "SEARCH_DIRS_MASK=\"/usr/lib*/insync\"" > "${T}/70-${PN}" || die
